@@ -21,15 +21,22 @@ html, body, #googft-mapCanvas {
 <script type="text/javascript">
   function initialize() {
     google.maps.visualRefresh = true;
+
+    //Determine if mobile viewer, and print to console
     var isMobile = (navigator.userAgent.toLowerCase().indexOf('android') > -1) ||
       (navigator.userAgent.match(/(iPod|iPhone|iPad|BlackBerry|Windows Phone|iemobile)/));
+    console.log("IsMobile: "+isMobile.toString()+".");
+
+
     if (isMobile) {
       var viewport = document.querySelector("meta[name=viewport]");
       viewport.setAttribute('content', 'initial-scale=1.0, user-scalable=no');
     }
+
     var mapDiv = document.getElementById('googft-mapCanvas');
     mapDiv.style.width = isMobile ? '100%' : '500px';
     mapDiv.style.height = isMobile ? '100%' : '300px';
+    
     var map = new google.maps.Map(mapDiv, {
       center: new google.maps.LatLng(37.96423617407523, 86.38053000000002),
       zoom: 2,
@@ -57,15 +64,19 @@ html, body, #googft-mapCanvas {
       legend.style.display = 'none';
       legendOpenButton.style.display = 'block';
       legendCloseButton.style.display = 'block';
+     
       legendOpenButton.onclick = function() {
         legend.style.display = 'block';
         legendOpenButton.style.display = 'none';
       }
+
       legendCloseButton.onclick = function() {
         legend.style.display = 'none';
         legendOpenButton.style.display = 'block';
       }
+
     }
+    
   }
 
   //DOM Listeners
@@ -78,6 +89,7 @@ html, body, #googft-mapCanvas {
 
   //Initialize element
   google.maps.event.addDomListener(window, 'load', initialize);
+
 </script>
 </head>
 
