@@ -36,7 +36,7 @@ html, body, #googft-mapCanvas {
       mapTypeId: google.maps.MapTypeId.ROADMAP
     });
 
-    layer = new google.maps.FusionTablesLayer({
+    var layer = new google.maps.FusionTablesLayer({
       map: map,
       heatmap: { enabled: false },
       query: {
