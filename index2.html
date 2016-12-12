@@ -81,10 +81,10 @@ html, body, #googft-mapCanvas {
 
   //DOM Listeners
   //'filter' function
-  google.maps.event.addDomListener(document.getElementById('filter'),
+   google.maps.event.addDomListener(document.getElementById('style'),
             'change', function() {
-              var selectedQuery = this.value;
-              layer.set('styleId', selectedQuery);
+              var selectedStyle = this.value;
+              layer.set('styleId', selectedStyle);
             });
 
   //Initialize element
@@ -102,10 +102,10 @@ html, body, #googft-mapCanvas {
     <div id="googft-mapCanvas"></div>
     <br>
     <label>Select style:</label>
-    <select id="filter">
-        <option value="1">Filter 1</option>
-        <option value="2">Filter 2</option>
-    </select>
+      <select id="style">
+        <option value="1">Red markers</option>
+        <option value="2">Blue markers</option>
+      </select>
     <form>
       <label>Field 1:</label>
       <input type="text" name="field1"><br>
