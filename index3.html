@@ -96,7 +96,7 @@
 
         //Set 'supportsOnline section of query
         if(document.getElementById("supportsOnline").checked){
-          if(query.length()!=0){
+          if(query.length!=0){
             query+="AND ";
           }
           query += "OnlineSupport = 'Yes' ";
@@ -104,7 +104,7 @@
 
         //Set 'radius section of query, and update label
         document.getElementById("displayRadius").innerHTML = radiusValue;
-        if(query.length()!=0){
+        if(query.length!=0){
             query+="AND ";
         }        
         query += "ST_INTERSECTS("+"Address"+", "+"CIRCLE(LATLNG(49.887836, -119.496592)"+", "+radius+")) ";                  
