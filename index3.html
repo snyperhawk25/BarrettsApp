@@ -31,6 +31,12 @@
 
     <!--Initialize script-->
     <script type="text/javascript">
+
+      //Global Script varaibles
+      var map;
+      var layer;
+
+      //Maps Default Initialization method.    
       function initialize() {
         //Fusion Info
         var tableId = '1vHtd2HTIiWmfZBfunHoRkTvuJoTG8UXabitBsgok';
@@ -38,14 +44,14 @@
         var radiusColumn = 'Radius';
 
         //Create Map. Default Location is Kelowna
-        var map = new google.maps.Map(document.getElementById('map-canvas'), {
+        map = new google.maps.Map(document.getElementById('map-canvas'), {
           center: new google.maps.LatLng(49.887836, -119.496592),
           zoom: 3,
           mapTypeId: google.maps.MapTypeId.ROADMAP
         });
 
         //Create Layer
-        var layer = new google.maps.FusionTablesLayer({
+        layer = new google.maps.FusionTablesLayer({
           query: {
             select: cityColumn,
             from: tableId
