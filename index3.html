@@ -103,10 +103,10 @@
         var query = "";
         
         //Initial radiusValue NaN
-        if(isNaN(radiusValue)){
-          console.log("RadiusValue is not a number.");
-          radiusValue=10;
-        }
+        //if(isNaN(radiusValue)){
+        //  console.log("RadiusValue is not a number.");
+        //  radiusValue=10;
+        //}
 
         //Set city section of query
         if (cityValue!="Any City") {
@@ -145,13 +145,16 @@
         //Update circle on map Element
         circle = new google.maps.Circle({
           center: new google.maps.LatLng(37.4, -122.1),
-          radius: radiusValue,
+          radius: 10, //default 10
           map: map,
-          fillOpacity: 0.1,
-          strokeOpacity: 0.3,
+          fillOpacity: 0.4,
+          strokeOpacity: 0.7,
           strokeWeight: 1
         });
         
+        //Update circle radius
+        circle.setRadius(radiusValue);
+
         //Print out record of selection
         console.log("Record for: "+cityValue+"\n"+"Latitide: "+City[cityValue][0]+", Longitude: "+City[cityValue][1]+".\n");
 
