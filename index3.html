@@ -40,12 +40,12 @@
       var circle;
       //Fusion Table
       var tableId = '1vHtd2HTIiWmfZBfunHoRkTvuJoTG8UXabitBsgok';
-      var cityColumn = "City, Address"; //!@#
+      var cityColumn = "City";
       var onlineColumn = "OnlineSupport";
       var addressColumn = "Address";
       //City Coordinate Table  //City.name[0] - Lat; City.name[0] - Lng
       var City = {
-        'Default' : [49.887836, -119.496592], //Kelowna Default
+        'Any City' : [49.248775, -122.980531], //Burnaby Default
         '100 Mile' : [51.644127, -121.295124],
         'Abbotsford' : [49.050339, -122.304451],
         'Burnaby' : [49.248775, -122.980531],
@@ -58,17 +58,17 @@
       //Maps Default Initialization method.    
       function initialize() {
 
-        //Create Map. Default Location is Kelowna
+        //Create Map. Default Location is Burnaby
         map = new google.maps.Map(document.getElementById('map-canvas'), {
           center: new google.maps.LatLng(49.248775, -122.9805312),
-          zoom: 9,
+          zoom: 11,
           mapTypeId: google.maps.MapTypeId.ROADMAP
         });
 
         //Create Layer
         layer = new google.maps.FusionTablesLayer({
           query: {
-            select: cityColumn,
+            select: cityColumn+", "+addressColumn+", "+onlineColumn,
             from: tableId
           },
           map: map
@@ -155,7 +155,7 @@
         //Update layer with query
         layer.setOptions({
             query: {
-              select: ""+cityColumn+", "+onlineColumn+", "+addressColumn,
+              select: cityColumn+", "+addressColumn+", "+onlineColumn,
               from: tableId,
               where: ""+query+""
             }
