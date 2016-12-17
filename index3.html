@@ -31,28 +31,27 @@
 
     <!--Initialize script-->
     <script type="text/javascript">
-
-      //Global Script varaibles
+      /*
+      Global Script varaibles
+      */
       //Google Maps
       var map;
       var layer;
       var circle;
       //Fusion Table
       var tableId = '1vHtd2HTIiWmfZBfunHoRkTvuJoTG8UXabitBsgok';
-      var cityColumn = "City";
+      var cityColumn = "City, Address"; //!@#
       var onlineColumn = "OnlineSupport";
       var addressColumn = "Address";
-      //City Coordinate Table
+      //City Coordinate Table  //City.name[0] - Lat; City.name[0] - Lng
       var City = {
         'Default' : [49.887836, -119.496592], //Kelowna Default
         '100 Mile' : [51.644127, -121.295124],
         'Abbotsford' : [49.050339, -122.304451],
         'Burnaby' : [49.248775, -122.980531],
-        'Kelowna' : [49.887836, -119.496592], //!@# ctd here
+        'Kelowna' : [49.887836, -119.496592],
       };
-      //City.name[0] - Lat
-      //City.name[0] - Lng
-      
+       
 
 
 
@@ -62,7 +61,7 @@
         //Create Map. Default Location is Kelowna
         map = new google.maps.Map(document.getElementById('map-canvas'), {
           center: new google.maps.LatLng(49.248775, -122.9805312),
-          zoom: 8,
+          zoom: 9,
           mapTypeId: google.maps.MapTypeId.ROADMAP
         });
 
@@ -143,13 +142,10 @@
         //!@#THIS NEEDS TO BE FIXED
         document.getElementById("displayRadius").innerHTML = radiusValue;
         if(query.length!=0){
-        //    query+="AND ";
+            query+="AND ";
         }        
-        //query += "ST_INTERSECTS("+"Address"+", "+"CIRCLE(LATLNG(49.887836, -119.496592)"+", "+radiusValue+")) ";                  
+        query += "ST_INTERSECTS("+"Address"+", "+"CIRCLE(LATLNG("+City[cityValue][0]+", "+City[cityValue][1]+")"+", "+radiusValue+")) ";                  
         
-
-        
-
 
         //Print query to console:
         console.log("Query:"+query+".");
