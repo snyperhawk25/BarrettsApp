@@ -43,15 +43,73 @@
       var cityColumn = "City";
       var onlineColumn = "OnlineSupport";
       var addressColumn = "Address";
-      //City Coordinate Table  //City.name[0] - Lat; City.name[0] - Lng
+      //City Table
       var City = {
-        'Any City' : [49.248775, -122.980531], //Burnaby Default
-        '100 Mile' : [51.644127, -121.295124],
-        'Abbotsford' : [49.050339, -122.304451],
-        'Burnaby' : [49.248775, -122.980531],
-        'Kelowna' : [49.887836, -119.496592],
+        'Any City' : 0, //Burnaby Default
+        '100 Mile' : 1,
+        'Abbotsford' : 2,
+        'Burnaby' : 3,
+        'Kelowna' : 4,
+      };
+      
+      //Coord Table //Coord.city.longitude
+      var Coord = {
+        "Any City" : {latitude: 49.248775, longitude: -122.980531}, //Burnaby Default
+        "100 Mile" : {latitude: 51.644127, longitude: -121.295124},
+        "Abbotsford" : {latitude: 49.050339, longitude: -122.304451},
+        "Burnaby" : {latitude: 49.248775, longitude: -122.980531},
+        "Kelowna" : {latitude: 49.887836, longitude: -119.496592},
       };
        
+      /*
+
+      //Coord Table
+      var Coord = [
+        "Any City", 49.248775, -122.980531, //Burnaby Default
+        "100 Mile", 51.644127, -121.295124,
+        "Abbotsford", 49.050339, -122.304451,
+        "Burnaby", 49.248775, -122.980531,
+        "Kelowna", 49.887836, -119.496592,
+      ];
+
+      */
+
+
+
+      /*
+
+      //City Table
+      var City = {
+        'Any City' : 0, //Burnaby Default
+        '100 Mile' : 1,
+        'Abbotsford' : 2,
+        'Burnaby' : 3,
+        'Kelowna' : 4,
+      };
+      //Coord Table
+      var Coord = [
+        [49.248775, -122.980531], //Burnaby Default
+        [51.644127, -121.295124],
+        [49.050339, -122.304451],
+        [49.248775, -122.980531],
+        [49.887836, -119.496592],
+      ];
+
+      */
+
+
+
+
+
+
+      //Print to console
+      console.log("Beginning Table Test:\n");
+      var city = "100 Mile"
+      console.log("Coordinates for "+city+" are:\n");
+      console.log("Latitude: "+(Coord.city.latitude)+"\nLogitude: "+(Coord.city.longitude));
+
+
+
 
 
 
