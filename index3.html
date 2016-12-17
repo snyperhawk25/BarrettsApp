@@ -61,8 +61,8 @@
 
         //Create Map. Default Location is Kelowna
         map = new google.maps.Map(document.getElementById('map-canvas'), {
-          center: new google.maps.LatLng(49.887836, -119.496592),
-          zoom: 7,
+          center: new google.maps.LatLng(49.248775, -122.9805312),
+          zoom: 8,
           mapTypeId: google.maps.MapTypeId.ROADMAP
         });
 
@@ -78,7 +78,7 @@
         //Create circle (Burnaby Default)
         circle = new google.maps.Circle({
           center: new google.maps.LatLng(49.248775, -122.980531),
-          radius: 200, //default 200
+          radius: 2000, //default 200
           map: map,
           fillOpacity: 0.4,
           strokeOpacity: 0.7,
@@ -166,7 +166,7 @@
         });
 
         //Update circle radius
-        circle.setRadius(radiusValue);
+        //circle.setRadius(radiusValue);
 
         //Print out record of selection
         console.log("Record for: "+cityValue+"\n"+"Latitide: "+City[cityValue][0]+", Longitude: "+City[cityValue][1]+".\n");
