@@ -147,9 +147,11 @@
           center: new google.maps.LatLng(49.248775, -122.980531),
           radius: 2000, //default 200
           map: map,
+          fillColor: '#FF0000',
           fillOpacity: 0.4,
           strokeOpacity: 0.7,
-          strokeWeight: 1
+          strokeWeight: 1,
+          strokeColor: '#FF0000',
         });
 
         //'radius' Listener
@@ -207,7 +209,6 @@
         }
 
         //Set 'radius section of query, and update label
-        //!@#THIS NEEDS TO BE FIXED
         document.getElementById("displayRadius").innerHTML = radiusValue;
         if(query.length!=0){
             query+="AND ";
@@ -231,6 +232,8 @@
 
         //Update circle radius
         //circle.setRadius(radiusValue); //not valid update method
+        //!@#Changing circle reset method
+        /*
         circle.setOptions({
           center: new google.maps.LatLng(Coord[City.indexOf(cityValue)][0], Coord[City.indexOf(cityValue)][1]),
           radius: radiusValue,
@@ -238,6 +241,20 @@
           fillOpacity: 0.4,
           strokeOpacity: 0.7,
           strokeWeight: 1
+        });
+        */
+        //Remove Circle
+        circle.setMap(null); //proper way to remove a circle (https://developers.google.com/maps/documentation/javascript/shapes#circles)
+        //create new circle
+        circle = new google.maps.Circle({
+          center: new google.maps.LatLng(Coord[City.indexOf(cityValue)][0], Coord[City.indexOf(cityValue)][1]),
+          radius: radiusValue,
+          map: map,
+          fillColor: '#FF0000',
+          fillOpacity: 0.4,
+          strokeOpacity: 0.7,
+          strokeWeight: 1,
+          strokeColor: '#FF0000',
         });
 
         //Print out record of selection
