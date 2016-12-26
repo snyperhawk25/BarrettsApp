@@ -46,10 +46,10 @@
       //City Table //Burnaby Default
       var City = [
         'Any City',
-        '100 Mile',
+        '100 Mile House',
         'Abbotsford',
         'Burnaby',
-        'Kelowna'
+        'Kamloops'
       ];
       
       //Coord Table //Burnaby Default
@@ -62,7 +62,7 @@
       ];
 
 /*
-      //Coord Table //Coord.city.longitude //DOESNT WORK
+      //Coord Table //Coord.city.longitude //DOESNT WORK //ALSO, THERE ARE SYNTAXICAL MISTAKES LIKE KELOWNA INSTEAD OF KAMLOOPS
       var Coord = {
         "Any City" : {latitude: 49.248775, longitude: -122.980531}, //Burnaby Default
         "100 Mile" : {latitude: 51.644127, longitude: -121.295124},
@@ -248,7 +248,7 @@
         //create new circle
         circle = new google.maps.Circle({
           center: new google.maps.LatLng(Coord[City.indexOf(cityValue)][0], Coord[City.indexOf(cityValue)][1]),
-          radius: parseInt(radiusValue), //parseInt reccomended//!@#
+          radius: parseInt(radiusValue), //parseInt() reqired for variable radius
           map: map,
           fillColor: '#FF0000',
           fillOpacity: 0.4,
