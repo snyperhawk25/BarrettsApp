@@ -211,8 +211,10 @@
         document.getElementById("displayRadius").innerHTML = radiusValue;
         if(query.length!=0){
             query+="AND ";
-        }        
-        query += "ST_INTERSECTS("+"Address"+", "+"CIRCLE(LATLNG("+City[cityValue][0]+", "+City[cityValue][1]+")"+", "+radiusValue+")) ";                  
+        }
+        var latlat=City[cityValue][0];
+        var lnglng=City[cityValue][1];        
+        query += "ST_INTERSECTS("+"Address"+", "+"CIRCLE(LATLNG("+latlat+", "+lnglng+")"+", "+radiusValue+")) ";                  
         
 
         //Print query to console:
