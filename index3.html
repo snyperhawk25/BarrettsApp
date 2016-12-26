@@ -209,7 +209,7 @@
         }
 
         //Set 'radius section of query, and update label
-        document.getElementById("displayRadius").innerHTML = radiusValue;
+        document.getElementById("displayRadius").innerHTML = ""+(radiusValue/1000.0)+" kilometers";
         if(query.length!=0){
             query+="AND ";
         }
@@ -302,10 +302,10 @@
       <option value="Kamloops">Kamloops</option>
     </select>
     
-    <!--Radius Selection, Range-->
+    <!--Radius Selection, Range, meters(m)-->
     <br>
     <label>Radius:</label>
-    <input id='radius' type='Range' min='10' max='2000' step='10' value='1500'/>
+    <input id='radius' type='Range' min='1000' max='20000' step='100' value='3000'/>
     <label id='displayRadius'></label>
 
     <!--Radius Selection, Range-->
