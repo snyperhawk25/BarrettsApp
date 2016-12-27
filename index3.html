@@ -225,8 +225,8 @@
         //if(query.length!=0){
         //    query+="AND ";
         //}
-        //query += "ST_INTERSECTS("+"Address"+", "+"CIRCLE(LATLNG("+Coord[City.indexOf(cityValue)][0]+", "+Coord[City.indexOf(cityValue)][1]+")"+", "+radiusValue+")) "; //Original. Address not seeming to be working
-        query += "ST_DISTANCE("+"Latitude"+", "+"CIRCLE(LATLNG("+Coord[City.indexOf(cityValue)][0]+", "+Coord[City.indexOf(cityValue)][1]+")"+", "+radiusValue+")) ";
+        query += "ST_INTERSECTS("+"Latitude"+", "+"CIRCLE(LATLNG("+Coord[City.indexOf(cityValue)][0]+", "+Coord[City.indexOf(cityValue)][1]+")"+", "+radiusValue+")) "; //Original. Address not seeming to be working
+        //query += "ST_DISTANCE("+"Latitude"+", "+"CIRCLE(LATLNG("+Coord[City.indexOf(cityValue)][0]+", "+Coord[City.indexOf(cityValue)][1]+")"+", "+radiusValue+")) ";
         
         
         
