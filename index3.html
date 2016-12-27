@@ -157,6 +157,7 @@
           }]
         });
 
+        /*
         //Create circle (Burnaby Default)
         circle = new google.maps.Circle({
           center: new google.maps.LatLng(49.248775, -122.980531),
@@ -167,6 +168,20 @@
           strokeOpacity: 0.7,
           strokeWeight: 1,
           strokeColor: '#FF0000',
+        });
+        */
+
+        map.data.add({
+          geometry: new google.maps.Circle({
+            center: new google.maps.LatLng(49.248775, -122.980531),
+            radius: 2000,
+            map: map,
+            fillColor: '#FF0000',
+            fillOpacity: 0.4,
+            strokeOpacity: 0.7,
+            strokeWeight: 1,
+            strokeColor: '#FF0000',
+          })
         });
 
 
