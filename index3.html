@@ -127,9 +127,9 @@
       //Function to Fill Form
       function fillForm(data){
         //date is type object.
-        console.log("The Name is: "+data.Name.value+".");
         document.getElementById("centerName").value = data.Name.value;
         document.getElementById("centerAddress").value = data.Address.value;
+        document.getElementById("centerCity").value = data.City.value;
       }
 
 
@@ -371,13 +371,13 @@
       <h3>Invigilation Center Information</h3>
       <button id="clear1" type="button" onclick="clearForm(1);">Clear Section</button>
       <br>
-      
+
       <label>Center Name:</label>
       <input id="centerName" type="text" placeholder="Center Name" maxlength="150" size="75"><br>
       <label>Center Street Address:</label>
       <input id="centerStreetAddress" type="text" placeholder="Center Street Address" maxlength="150" size="75"><br>
       <label>Center City:</label>
-      <input id="centerAddress" type="text" placeholder="Center City" maxlength="150" size="75"><br>
+      <input id="centercity" type="text" placeholder="Center City" maxlength="150" size="75"><br>
       <label>Center Province:</label>
       <select id="centerProvince">
         <option value="British_Columbia">British Columbia</option>
