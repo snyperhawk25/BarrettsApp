@@ -128,7 +128,7 @@
       function fillForm(data){
         //date is type object.
         document.getElementById("centerName").value = data.Name.value;
-        document.getElementById("centerAddress").value = data.Address.value;
+        document.getElementById("centerStreetAddress").value = data.Address.value;
         document.getElementById("centerCity").value = data.City.value;
       }
 
@@ -368,89 +368,97 @@
     <hr>
     <br>
     <form>
-      <h3>Invigilation Center Information</h3>
-      <button id="clear1" type="button" onclick="clearForm(1);">Clear Section</button>
-      <br>
+      <fieldset>
+        <legend>Invigilation Center Information</legend>
+        <button id="clear1" type="button" onclick="clearForm(1);">Clear Section</button>
+        <br>
 
-      <label>Center Name:</label>
-      <input id="centerName" type="text" placeholder="Center Name" maxlength="150" size="75"><br>
-      <label>Center Street Address:</label>
-      <input id="centerStreetAddress" type="text" placeholder="Center Street Address" maxlength="150" size="75"><br>
-      <label>Center City:</label>
-      <input id="centercity" type="text" placeholder="Center City" maxlength="150" size="75"><br>
-      <label>Center Province:</label>
-      <select id="centerProvince">
-        <option value="British_Columbia">British Columbia</option>
-        <option value="Alberta">Alberta</option>
-        <option value="Sasketchewan">Sasketchewan</option>
-        <option value="Manitoba">Manitoba</option>
-        <option value="Ontario">Ontario</option>
-        <option value="Quebec">Quebec</option>
-        <option value="Nova_Scotia">Nova Scotia</option>
-        <option value="Newfoundland_and_Labrador">Newfoundland and Labrador</option>
-        <option value="New_Brunswick">New Brunswick</option>
-        <option value="Prince_Edward_Island">Prince Edward Island</option>
-        <option value="Yukon">Yukon</option>
-        <option value="Northwest_Territories">Northwest Territories</option>
-        <option value="Nunavut">Nunavut</option>
-      </select>
+        <label>Center Name:</label>
+        <input id="centerName" type="text" placeholder="Center Name" maxlength="150" size="75"><br>
+        <label>Center Street Address:</label>
+        <input id="centerStreetAddress" type="text" placeholder="Center Street Address" maxlength="150" size="75"><br>
+        <label>Center City:</label>
+        <input id="centercity" type="text" placeholder="Center City" maxlength="150" size="75"><br>
+        <label>Center Province:</label>
+        <select id="centerProvince">
+          <option value="British_Columbia">British Columbia</option>
+          <option value="Alberta">Alberta</option>
+          <option value="Sasketchewan">Sasketchewan</option>
+          <option value="Manitoba">Manitoba</option>
+          <option value="Ontario">Ontario</option>
+          <option value="Quebec">Quebec</option>
+          <option value="Nova_Scotia">Nova Scotia</option>
+          <option value="Newfoundland_and_Labrador">Newfoundland and Labrador</option>
+          <option value="New_Brunswick">New Brunswick</option>
+          <option value="Prince_Edward_Island">Prince Edward Island</option>
+          <option value="Yukon">Yukon</option>
+          <option value="Northwest_Territories">Northwest Territories</option>
+          <option value="Nunavut">Nunavut</option>
+        </select>
+      </fieldset>
 
+      <fieldset>
+        <legend>Examinee Information</legend>
+        <button id="clear2" type="button" onclick="clearForm(2);">Clear Section</button>
+        <br>
 
-      <h3>Examinee Information</h3>
-      <button id="clear2" type="button" onclick="clearForm(2);">Clear Section</button>
-      <br>
+        <label>First Name:</label>
+        <input id="firstName" type="text" placeholder="First Name" maxlength="25"><br>
+        <label>Last Name:</label>
+        <input id="lastName" type="text" placeholder="Last Name" maxlength="25"><br>
+        <label>Phone:</label>
+        <input id="phone" type="text" placeholder="First Name" maxlength="25"><br>
+        <label>Email:</label>
+        <input id="email" type="text" placeholder="First Name" maxlength="40"><br>
+        <label>Exam Date (First Choice):</label>
+        <br>
+        <label>Exam Date (Second Choice):</label>
+        <br>
+        <label>Exam Time (Preferred):</label>
+        <br>
+      </fieldset>
 
-      <label>First Name:</label>
-      <input id="firstName" type="text" placeholder="First Name" maxlength="25"><br>
-      <label>Last Name:</label>
-      <input id="lastName" type="text" placeholder="Last Name" maxlength="25"><br>
-      <label>Phone:</label>
-      <input id="phone" type="text" placeholder="First Name" maxlength="25"><br>
-      <label>Email:</label>
-      <input id="email" type="text" placeholder="First Name" maxlength="40"><br>
-      <label>Exam Date (First Choice):</label>
-      <br>
-      <label>Exam Date (Second Choice):</label>
-      <br>
-      <label>Exam Time (Preferred):</label>
-      <br>
+      <fieldset>
+        <legend>Institutional Information</legend>
+        <button id="clear3" type="button" onclick="clearForm(3);">Clear Section</button>
+        <br>
 
-      <h3>Institutional Information</h3>
-      <button id="clear3" type="button" onclick="clearForm(3);">Clear Section</button>
-      <br>
+        <label>School Name:</label>
+        <br>
+        <label>Street Address:</label>
+        <br>
+        <label>City:</label>
+        <br>
+        <label>Province:</label>
+        <br>
+        <label>Contact Name:</label>
+        <br>
+        <label>Contact Email:</label>
+        <br>
+      </fieldset>
 
-      <label>School Name:</label>
-      <br>
-      <label>Street Address:</label>
-      <br>
-      <label>City:</label>
-      <br>
-      <label>Province:</label>
-      <br>
-      <label>Contact Name:</label>
-      <br>
-      <label>Contact Email:</label>
-      <br>
+      <fieldset>
+        <legend>Exam Information</legend>
+        <button id="clear4" type="button" onclick="clearForm(4);">Clear Section</button>
+        <br>
 
-      <h3>Exam Information</h3>
-      <button id="clear4" type="button" onclick="clearForm(4);">Clear Section</button>
-      <br>
-
-      <label>Course Number:</label>
-      <br>
-      <label>Midterm or Final:</label>
-      <br>
-      <label>Exam Type:</label>
-      <br>
-      <label>Computer Required?:</label>
-      <br>
-      <label>Additional Requirements or Information:</label>
-      <br>
-      <label>Invigilation Fee Covered by Institution:</label>
-      <br>
+        <label>Course Number:</label>
+        <br>
+        <label>Midterm or Final:</label>
+        <br>
+        <label>Exam Type:</label>
+        <br>
+        <label>Computer Required?:</label>
+        <br>
+        <label>Additional Requirements or Information:</label>
+        <br>
+        <label>Invigilation Fee Covered by Institution:</label>
+        <br>
+      </fieldset>
 
       <br>
       <input type="submit" value='Submit Form'>
+      
     </form>
 
 
