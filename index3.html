@@ -217,9 +217,28 @@
         supportsOnlineValue = document.getElementById('supportsOnline').value;
         var query = "";
 
+        
+        
+        
+        //Set 'radius section of query, and update label
+        document.getElementById("displayRadius").innerHTML = ""+(radiusValue/1000.0)+" kilometers";
+        //if(query.length!=0){
+        //    query+="AND ";
+        //}
+        //query += "ST_INTERSECTS("+"Address"+", "+"CIRCLE(LATLNG("+Coord[City.indexOf(cityValue)][0]+", "+Coord[City.indexOf(cityValue)][1]+")"+", "+radiusValue+")) "; //Original. Address not seeming to be working
+        query += "ST_DISTANCE("+"Latitude"+", "+"CIRCLE(LATLNG("+Coord[City.indexOf(cityValue)][0]+", "+Coord[City.indexOf(cityValue)][1]+")"+", "+radiusValue+")) ";
+        
+        
+        
+        
+        
+        
         //Set city section of query
         
         if (cityValue!="Any City") {
+          if(query.length!=0){
+            query+="AND ";
+          }
           query += "City = '" + cityValue + "' ";
         }
         
@@ -234,17 +253,10 @@
         }
         
 
-        //Set 'radius section of query, and update label
-        document.getElementById("displayRadius").innerHTML = ""+(radiusValue/1000.0)+" kilometers";
-        if(query.length!=0){
-            query+="AND ";
-        }
-        //query += "ST_INTERSECTS("+"Address"+", "+"CIRCLE(LATLNG("+Coord[City.indexOf(cityValue)][0]+", "+Coord[City.indexOf(cityValue)][1]+")"+", "+radiusValue+")) "; //Original. Address not seeming to be working
-        query += "ST_DISTANCE("+"Latitude"+", "+"CIRCLE(LATLNG("+Coord[City.indexOf(cityValue)][0]+", "+Coord[City.indexOf(cityValue)][1]+")"+", "+radiusValue+")) ";
         
 
         //Print query to console:
-        console.log("Query:"+query+".");
+        //console.log("Query:"+query+".");
 
 
 
