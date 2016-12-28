@@ -139,10 +139,6 @@
 
       }//Initialize
 
-
-
-
-
       // Update the query sent to the Fusion Table Layer based on user selection.
       function updateMap() {
 
@@ -152,16 +148,7 @@
         supportsOnlineValue = document.getElementById('supportsOnline').value;
         var query = "";     
         
-        //Set 'radius section of query, and update label
-        document.getElementById("displayRadius").innerHTML = ""+(radiusValue/1000.0)+" kilometers";
-        //if(query.length!=0){
-        //    query+="AND ";
-        //}
-        query += "ST_INTERSECTS("+"Latitude"+", "+"CIRCLE(LATLNG("+Coord[City.indexOf(cityValue)][0]+", "+Coord[City.indexOf(cityValue)][1]+")"+", "+radiusValue+")) "; //Original. Address not seeming to be working
-        //query += "ST_DISTANCE("+"Latitude"+", "+"CIRCLE(LATLNG("+Coord[City.indexOf(cityValue)][0]+", "+Coord[City.indexOf(cityValue)][1]+")"+", "+radiusValue+")) ";
-        
-        //Set city section of query
-        
+        //Set the city section of query
         if (cityValue!="Any City") {
           if(query.length!=0){
             query+="AND ";
@@ -169,13 +156,20 @@
           query += "City = '" + cityValue + "' ";
         }
 
-        //Set 'supportsOnline section of query
+        //Set the supportsOnline section of query
         if(document.getElementById("supportsOnline").checked){
           if(query.length!=0){
             query+="AND ";
           }
           query += "OnlineSupport = 'Yes' ";
         }
+
+        //Set the radius section of query (and update radius label)
+        document.getElementById("displayRadius").innerHTML = ""+(radiusValue/1000.0)+" kilometers";
+        if(query.length!=0){
+            query+="AND ";
+        }
+        query += "ST_INTERSECTS("+"Latitude"+", "+"CIRCLE(LATLNG("+Coord[City.indexOf(cityValue)][0]+", "+Coord[City.indexOf(cityValue)][1]+")"+", "+radiusValue+")) "; //Latitude is the location column, because it is paired (two-column) with longitude.
 
         //Update layer with query
         layer.setOptions({
@@ -203,8 +197,8 @@
         });
 
         //Print out record of selection
-        console.log("Record for: "+cityValue+"\n"+"Latitide: "+Coord[City.indexOf(cityValue)][0]+", Longitude: "+Coord[City.indexOf(cityValue)][1]+".\n");
-        console.log("query.where is: "+layer.query.where+"."); //!@#?
+        console.log("City "+cityValue+" located at: Latitide: "+Coord[City.indexOf(cityValue)][0]+", Longitude: "+Coord[City.indexOf(cityValue)][1]+".\n");
+        console.log("FusionLayer Query is: "+layer.query.where+".");
       
       }//updateMap
 
@@ -340,6 +334,8 @@
         </select>
       </fieldset>
 
+
+<!-- All below fields need to be expaned on and reorganized
       <fieldset>
         <legend>Examinee Information</legend>
         <button id="clear2" type="button" onclick="clearForm(2);">Clear Section</button>
@@ -398,6 +394,8 @@
         <label>Invigilation Fee Covered by Institution:</label>
         <br>
       </fieldset>
+-->
+
 
       <br>
       <input type="submit" value='Submit Form'>
