@@ -61,7 +61,7 @@
         [51.644127, -121.295124],
         [49.050339, -122.304451],
         [49.248775, -122.980531],
-        [49.887836, -119.496592], //!@#Change to Kamloops from Kelowna
+        [49.887836, -119.496592],
       ];
 
       /*-------- Functions --------------*/
@@ -212,7 +212,7 @@
           map.setCenter(new google.maps.LatLng(Coord[City.indexOf(cityValue)][0], Coord[City.indexOf(cityValue)][1]));
           map.setZoom(11);
         }else{
-          map.setCenter(new google.maps.LatLng(Coord[City.indexOf("Any City")][0], Coord[City.indexOf("Any City")][1]));
+          map.setCenter(new google.maps.LatLng(Coord[City.indexOf("Burnaby")][0], Coord[City.indexOf("Burnaby")][1]));
           map.setZoom(9);
         }
         console.log("Re-Center Clicked.");
